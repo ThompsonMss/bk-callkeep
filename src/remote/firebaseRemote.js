@@ -6,14 +6,8 @@ admin.initializeApp({
   databaseURL: "https://callkeep-acb19.firebaseio.com",
 });
 
-export function sendMessageSilent(token) {
-    
-  const message = {
-    data: {
-      call: true,
-    },
-    token: token,
-  };
+function sendMessageSilent(token) {
+  let message = { notification: { title: 'title', body: 'body' }, token: token };
 
   admin
     .messaging()
@@ -25,3 +19,5 @@ export function sendMessageSilent(token) {
       console.log("Falha ao realizar chamada.");
     });
 }
+
+module.exports = sendMessageSilent;
