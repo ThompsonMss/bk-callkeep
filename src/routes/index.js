@@ -1,7 +1,20 @@
+import { sendMessageSilent } from "../remote/firebaseRemote";
+
 function routes(route) {
-  route.get("/", (req, res) => {
-    const { token } = req.query;
-    res.render("Home/index", { token: token });
+  route.post("/call", (req, res) => {
+    const { token } = req.body;
+
+    try {
+      if (!token) {
+        throw new Error("O token é obrigatório.");
+      }
+
+      sendMessageSilent(token);
+
+      res.status(200).json({ sucesso: "Chamada enviada." });
+    } catch (error) {
+      res.json({ error: error });
+    }
   });
 }
 
