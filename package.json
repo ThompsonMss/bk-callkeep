@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/ThompsonMss/bk-callkeep/issues"
   },
-  "homepage": "https://github.com/ThompsonMss/bk-callkeep#readme"
+  "homepage": "https://github.com/ThompsonMss/bk-callkeep#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  }
 }
